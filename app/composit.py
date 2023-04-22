@@ -42,7 +42,7 @@ def doit():
             X = np.array(X).reshape(1, -1)
 
             model1 = load('Прочность при растяжении.joblib')
-            transformer = Normalizer()
+            transformer = StandardScaler()
             xn = transformer.fit_transform(X)
 
             mess1 = f'Ожидаемая прочность при растяжении, МПа: {round(model1.predict(xn)[0], 3)}'
