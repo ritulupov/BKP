@@ -12,16 +12,15 @@ import numpy as np
 
 app = Flask(__name__)
 
-['Модуль упругости при растяжении, ГПа','Прочность при растяжении, МПа',
-             'Соотношение матрица-наполнитель'
-             ]
-
+model1 = load('Модуль упругости при растяжении, ГПа.joblib')
+model2 = load('Прочность при растяжении.joblib')
 @app.route('/', methods=['POST', 'GET'])
 def doit():
     mess1 = ''
     mess2 = ''
     if request.method == 'POST':
-        Xst = []    
+        Xst = []
+        Xst.append(request.form.get("feature0"))   
         Xst.append(request.form.get("feature1"))
         Xst.append(request.form.get("feature2"))
         Xst.append(request.form.get("feature3"))
@@ -35,18 +34,14 @@ def doit():
 
         X = [float(i) for i in Xst if i.replace('.', '').isdigit()]
 
-        if len(X) != 10:
-            mess1 = f"Неверное количество параметров {len(X)}, должно быть 10"
+        if len(X) != 11:
+            mess1 = f"Неверное количество параметров {len(X)}, должно быть 11"
         else:
-            X[5] = X[5] ** 0.5
+            X[6] = X[6] ** 0.5
             X = np.array(X).reshape(1, -1)
 
-            model1 = load('Прочность при растяжении.joblib')
-            transformer = StandardScaler()
-            xn = transformer.fit_transform(X)
-
-            mess1 = f'Ожидаемая прочность при растяжении, МПа: {round(model1.predict(xn)[0], 3)}'
-            mess2 = str(xn)
+            mess1 = f'Ожидаемый модуль упругости при растяжении, ГПа: {round(model1.predict(X)[0], 3)}'
+            mess2 = f'Ожидаемая прочность при растяжении, МПа: {round(model2.predict(X)[0], 3)}'
 
     return render_template('index.html',
                            message='Прогноз модуля упругости при растяжении, прочности при растяжении',

@@ -6,51 +6,51 @@
 	</head>
 	
 	<body>
-
-		{% if message %}
-        <h1>{{ message }}</h1>
-		{% endif %}
-
-		<form action="/" method="POST">
+        <h1>Прогноз<br>модуля упругости при растяжении,<br>прочности при растяжении</h1>	
+		<form action="/" method="POST">			
+			<p>
+				<label for="feature1">Соотношение матрица-наполнитель</label>
+				<input type="text" style=position:absolute;left:25%; pattern="\d+(.\d{0,10})?" name="feature0" placeholder="0.00">
+			</p>
 			<p>
 				<label for="feature1">Плотность, кг/м3</label>
-				<input type="text" pattern="\d+(.\d{0,10})?" name="feature1" placeholder="0.00">
+				<input type="text" style=position:absolute;left:25%; pattern="\d+(.\d{0,10})?" name="feature1" placeholder="0.00">
 			</p>
 			<p>
 				<label for="feature2">модуль упругости, ГПа</label>
-				<input type="text" pattern="\d+(.\d{0,10})?" name="feature2"placeholder="0.00">
+				<input type="text" style=position:absolute;left:25%; pattern="\d+(.\d{0,10})?" name="feature2"placeholder="0.00">
 			</p>
 			<p>
 				<label for="feature3">Количество отвердителя, м.%</label>
-				<input type="text" pattern="\d+(.\d{0,10})?" name="feature3"placeholder="0.00">
+				<input type="text" style=position:absolute;left:25%; pattern="\d+(.\d{0,10})?" name="feature3"placeholder="0.00">
 			</p>
 			<p>
 				<label for="feature4">Содержание эпоксидных групп,%_2</label>
-				<input type="text" pattern="\d+(.\d{0,10})?" name="feature4" placeholder="0.00">
+				<input type="text" style=position:absolute;left:25%; pattern="\d+(.\d{0,10})?" name="feature4" placeholder="0.00">
 			</p>
 			<p>
 				<label for="feature5">Температура вспышки, С_2</label>
-				<input type="text" pattern="\d+(.\d{0,10})?" name="feature5" placeholder="0.00">
+				<input type="text" style=position:absolute;left:25%; pattern="\d+(.\d{0,10})?" name="feature5" placeholder="0.00">
 			</p>
 			<p>
 				<label for="feature6">Поверхностная плотность, г/м2</label>
-				<input type="text" pattern="\d+(.\d{0,10})?" name="feature6" placeholder="0.00">
+				<input type="text" style=position:absolute;left:25%; pattern="\d+(.\d{0,10})?" name="feature6" placeholder="0.00">
 			</p>
 			<p>
 				<label for="feature7">Потребление смолы, г/м2</label>
-				<input type="text" pattern="\d+(.\d{0,10})?" name="feature7" placeholder="0.00">
+				<input type="text" style=position:absolute;left:25%; pattern="\d+(.\d{0,10})?" name="feature7" placeholder="0.00">
 			</p>
 			<p>
 				<label for="feature8">Угол нашивки, град</label>
-				<input type="text" pattern="\d+(.\d{0,10})?" name="feature8" placeholder="00">
+				<input type="text" style=position:absolute;left:25%; pattern="\d+(.\d{0,10})?" name="feature8" placeholder="00">
 			</p>
 			<p>
 				<label for="feature9">Шаг нашивки</label>
-				<input type="text" pattern="\d+(.\d{0,10})?" name="feature9" placeholder="0.00">
+				<input type="text" style=position:absolute;left:25%; pattern="\d+(.\d{0,10})?" name="feature9" placeholder="0.00">
 			</p>
 			<p>
 				<label for="feature10">Плотность нашивки</label>
-				<input type="text" pattern="\d+(.\d{0,10})?" name="feature10" placeholder="0.00">
+				<input type="text" style=position:absolute;left:25%; pattern="\d+(.\d{0,10})?" name="feature10" placeholder="0.00">
 			</p>
 			<p>
 				<button type="submit">рассчитать</button>
